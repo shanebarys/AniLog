@@ -9,21 +9,27 @@
 /* Begin PBXBuildFile section */
 		E4262D18245613B400B8C8CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4262D17245613B400B8C8CC /* AppDelegate.swift */; };
 		E4262D1A245613B400B8C8CC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4262D19245613B400B8C8CC /* SceneDelegate.swift */; };
-		E4262D1C245613B400B8C8CC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4262D1B245613B400B8C8CC /* ViewController.swift */; };
+		E4262D1C245613B400B8C8CC /* AnimalListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4262D1B245613B400B8C8CC /* AnimalListViewController.swift */; };
 		E4262D1F245613B400B8C8CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4262D1D245613B400B8C8CC /* Main.storyboard */; };
 		E4262D21245613B600B8C8CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4262D20245613B600B8C8CC /* Assets.xcassets */; };
 		E4262D24245613B600B8C8CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4262D22245613B600B8C8CC /* LaunchScreen.storyboard */; };
+		E4262D2C2456168000B8C8CC /* AnimalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4262D2B2456168000B8C8CC /* AnimalTableViewCell.swift */; };
+		E4262D2E245617ED00B8C8CC /* Animal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4262D2D245617ED00B8C8CC /* Animal.swift */; };
+		E4262D302456193E00B8C8CC /* Animals.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4262D2F2456193E00B8C8CC /* Animals.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E4262D14245613B400B8C8CC /* AniLog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AniLog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4262D17245613B400B8C8CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4262D19245613B400B8C8CC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E4262D1B245613B400B8C8CC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E4262D1B245613B400B8C8CC /* AnimalListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalListViewController.swift; sourceTree = "<group>"; };
 		E4262D1E245613B400B8C8CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E4262D20245613B600B8C8CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E4262D23245613B600B8C8CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E4262D25245613B600B8C8CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E4262D2B2456168000B8C8CC /* AnimalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalTableViewCell.swift; sourceTree = "<group>"; };
+		E4262D2D245617ED00B8C8CC /* Animal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animal.swift; sourceTree = "<group>"; };
+		E4262D2F2456193E00B8C8CC /* Animals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animals.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +64,10 @@
 			children = (
 				E4262D17245613B400B8C8CC /* AppDelegate.swift */,
 				E4262D19245613B400B8C8CC /* SceneDelegate.swift */,
-				E4262D1B245613B400B8C8CC /* ViewController.swift */,
+				E4262D2F2456193E00B8C8CC /* Animals.swift */,
+				E4262D2D245617ED00B8C8CC /* Animal.swift */,
+				E4262D2B2456168000B8C8CC /* AnimalTableViewCell.swift */,
+				E4262D1B245613B400B8C8CC /* AnimalListViewController.swift */,
 				E4262D1D245613B400B8C8CC /* Main.storyboard */,
 				E4262D20245613B600B8C8CC /* Assets.xcassets */,
 				E4262D22245613B600B8C8CC /* LaunchScreen.storyboard */,
@@ -138,9 +147,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4262D1C245613B400B8C8CC /* ViewController.swift in Sources */,
+				E4262D1C245613B400B8C8CC /* AnimalListViewController.swift in Sources */,
+				E4262D302456193E00B8C8CC /* Animals.swift in Sources */,
+				E4262D2C2456168000B8C8CC /* AnimalTableViewCell.swift in Sources */,
 				E4262D18245613B400B8C8CC /* AppDelegate.swift in Sources */,
 				E4262D1A245613B400B8C8CC /* SceneDelegate.swift in Sources */,
+				E4262D2E245617ED00B8C8CC /* Animal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
