@@ -16,15 +16,40 @@ class AnimalDetailTableViewController: UITableViewController, UIImagePickerContr
     @IBOutlet weak var dateField: UITextField!
     @IBOutlet weak var descriptionView: UITextView!
     @IBOutlet weak var picture: UIImageView!
+    @IBOutlet weak var ratingField: UITextField!
     
     var imagePicker = UIImagePickerController()
     
+    var animal: Animal!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        if animal == nil {
+            animal = Animal(type: "", name: "", description: "", rating: "", picture: UIImage(), dateMet: "")
+        }
+        
+        typeField.text = animal.type
+        nameField.text = animal.name
+        dateField.text = animal.dateMet
+        descriptionView.text = animal.description
+        picture.image = animal.picture
+        ratingField.text = animal.rating
        
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        animal.type = typeField.text!
+        animal.name = nameField.text!
+        animal.dateMet = dateField.text!
+        animal.picture = picture.image!
+        animal.rating = ratingField.text!
+        animal.description = descriptionView.text
+        
+        
+        
+        
+    }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage

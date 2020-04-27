@@ -13,11 +13,11 @@ class Animal {
     var type: String
     var name: String
     var description: String
-    var rating: Int
+    var rating: String
     var picture: UIImage
     var dateMet: String
     
-    init(type: String, name: String, description: String, rating: Int, picture: UIImage, dateMet: String) {
+    init(type: String, name: String, description: String, rating: String, picture: UIImage, dateMet: String) {
         self.name = name
         self.description = description
         self.type = type
