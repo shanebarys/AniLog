@@ -11,6 +11,7 @@ import UIKit
 class AnimalListViewController: UIViewController, AnimalTableViewCellDelegate {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var addBarButton: UIBarButtonItem!
     
     var animals: Animals!
     
@@ -26,6 +27,17 @@ class AnimalListViewController: UIViewController, AnimalTableViewCellDelegate {
         // Do any additional setup after loading the view.
     }
 
+    func saveData() {
+        let directoryURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let documentURL = directoryURL.appendingPathComponent("animals").appendingPathExtension("json")
+        
+        let jsonEncoder = JSONEncoder()
+        let data = try? jsonEncoder.encode(animals)
+        do {
+    
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowDetail" {
             let destination = segue.destination as! AnimalDetailTableViewController
@@ -50,7 +62,22 @@ class AnimalListViewController: UIViewController, AnimalTableViewCellDelegate {
             tableView.scrollToRow(at: newIndexPath, at: .top, animated: true)
         }
     }
+    
+    @IBAction func editButtonPressed(_ sender: UIBarButtonItem) {
+        if tableView.isEditing {
+            tableView.setEditing(false, animated: true)
+            sender.title = "Edit"
+            addBarButton.isEnabled = true
+        } else {
+            tableView.setEditing(true, animated: true)
+            sender.title = "Done"
+            addBarButton.isEnabled = false
+        }
+    }
+    
 }
+
+
 
 extension AnimalListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -68,4 +95,18 @@ extension AnimalListViewController: UITableViewDataSource, UITableViewDelegate {
         return 141
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            animals.animalArray.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let animalToMove = animals.animalArray[sourceIndexPath.row]
+        animals.animalArray.remove(at: sourceIndexPath.row)
+        animals.animalArray.insert(animalToMove, at: destinationIndexPath.row)
+    }
+    
 }
+
