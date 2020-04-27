@@ -88,6 +88,7 @@
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.87406091451191537" green="1" blue="0.98360221164382944" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <connections>
                                             <outlet property="animalImageView" destination="LO1-2B-RQg" id="YdE-Qt-zz7"/>
                                             <outlet property="animalTypeLabel" destination="zOf-Or-W2k" id="77X-Lz-D9J"/>
