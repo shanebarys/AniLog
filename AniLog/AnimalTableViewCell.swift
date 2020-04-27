@@ -29,7 +29,7 @@ var animal: Animal! {
             nameLabel.text = animal.name
             dateMetLabel.text = animal.dateMet
             ratingLabel.text = String(animal.rating)
-            animalImageView.image = animal.picture
+            animalImageView.image = UIImage(data: animal.picture.photo)
             
             
         }

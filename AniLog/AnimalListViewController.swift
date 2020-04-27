@@ -21,12 +21,30 @@ class AnimalListViewController: UIViewController, AnimalTableViewCellDelegate {
         tableView.delegate = self
         
         animals = Animals()
-        animals.animalArray.append(Animal(type: "Dog", name: "Jockey", description: "hyperactive", rating: "13", picture: UIImage(), dateMet: "10/21/16"))
-        animals.animalArray.append(Animal(type: "Dog", name: "Cossa", description: "sluggish, cuddly", rating: "12", picture: UIImage(), dateMet: "09/37/18"))
-        animals.animalArray.append(Animal(type: "Slug", name: "Wallace", description: "slimy, rude", rating: "3", picture: UIImage(), dateMet: "04/21/20"))
+//        animals.animalArray.append(Animal(type: "Dog", name: "Jockey", description: "hyperactive", rating: "13", picture: SomeImage(photo: UIImage()), dateMet: "10/21/16"))
+//        animals.animalArray.append(Animal(type: "Dog", name: "Cossa", description: "sluggish, cuddly", rating: "12", picture: SomeImage(photo: UIImage()), dateMet: "09/37/18"))
+//        animals.animalArray.append(Animal(type: "Slug", name: "Wallace", description: "slimy, rude", rating: "3", picture: SomeImage(photo: UIImage()), dateMet: "04/21/20"))
         // Do any additional setup after loading the view.
+        loadData()
     }
 
+    func loadData() {
+        let directoryURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let documentURL = directoryURL.appendingPathComponent("animals").appendingPathExtension("json")
+        
+        guard let data = try? Data(contentsOf: documentURL) else {return}
+        
+        let jsonDecoder = JSONDecoder()
+        do {
+            animals = try jsonDecoder.decode(Animals.self, from: data)
+            tableView.reloadData()
+        } catch {
+            print("💔 ERROR: Could not load data, \(error.localizedDescription)")
+
+        }
+        
+    }
+    
     func saveData() {
         let directoryURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         let documentURL = directoryURL.appendingPathComponent("animals").appendingPathExtension("json")
@@ -34,7 +52,9 @@ class AnimalListViewController: UIViewController, AnimalTableViewCellDelegate {
         let jsonEncoder = JSONEncoder()
         let data = try? jsonEncoder.encode(animals)
         do {
-    
+            try data?.write(to: documentURL, options: .noFileProtection)
+        } catch {
+            print("💔 ERROR: Could not save data, \(error.localizedDescription)")
         }
     }
     
@@ -61,6 +81,7 @@ class AnimalListViewController: UIViewController, AnimalTableViewCellDelegate {
             tableView.insertRows(at: [newIndexPath], with: .top)
             tableView.scrollToRow(at: newIndexPath, at: .top, animated: true)
         }
+        saveData()
     }
     
     @IBAction func editButtonPressed(_ sender: UIBarButtonItem) {
@@ -99,6 +120,7 @@ extension AnimalListViewController: UITableViewDataSource, UITableViewDelegate {
         if editingStyle == .delete {
             animals.animalArray.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            saveData()
         }
     }
     
@@ -106,6 +128,7 @@ extension AnimalListViewController: UITableViewDataSource, UITableViewDelegate {
         let animalToMove = animals.animalArray[sourceIndexPath.row]
         animals.animalArray.remove(at: sourceIndexPath.row)
         animals.animalArray.insert(animalToMove, at: destinationIndexPath.row)
+        saveData()
     }
     
 }

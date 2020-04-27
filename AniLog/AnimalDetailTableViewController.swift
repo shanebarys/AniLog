@@ -25,15 +25,22 @@ class AnimalDetailTableViewController: UITableViewController, UIImagePickerContr
     override func viewDidLoad() {
         super.viewDidLoad()
         
+
+        
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
+        tap.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tap)
+        
         if animal == nil {
-            animal = Animal(type: "", name: "", description: "", rating: "", picture: UIImage(), dateMet: "")
+            animal = Animal(type: "", name: "", description: "", rating: "", picture: SomeImage(photo: UIImage(named: "qmark")!), dateMet: "")
+            typeField.becomeFirstResponder()
         }
         
         typeField.text = animal.type
         nameField.text = animal.name
         dateField.text = animal.dateMet
         descriptionView.text = animal.description
-        picture.image = animal.picture
+        picture.image = UIImage(data: animal.picture.photo)
         ratingField.text = animal.rating
        
     }
@@ -42,7 +49,8 @@ class AnimalDetailTableViewController: UITableViewController, UIImagePickerContr
         animal.type = typeField.text!
         animal.name = nameField.text!
         animal.dateMet = dateField.text!
-        animal.picture = picture.image!
+        animal.picture = SomeImage(photo: picture.image ?? UIImage())
+        //animal.picture = picture.image?.pngData()!
         animal.rating = ratingField.text!
         animal.description = descriptionView.text
         
@@ -87,3 +95,4 @@ class AnimalDetailTableViewController: UITableViewController, UIImagePickerContr
     }
     
 }
+

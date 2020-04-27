@@ -8,6 +8,6 @@
 
 import Foundation
 
-class Animals {
+class Animals: Codable {
     var animalArray = [Animal]()
 }

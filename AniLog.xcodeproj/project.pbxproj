@@ -17,6 +17,7 @@
 		E4262D2E245617ED00B8C8CC /* Animal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4262D2D245617ED00B8C8CC /* Animal.swift */; };
 		E4262D302456193E00B8C8CC /* Animals.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4262D2F2456193E00B8C8CC /* Animals.swift */; };
 		E4262D322456628A00B8C8CC /* AnimalDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4262D312456628A00B8C8CC /* AnimalDetailTableViewController.swift */; };
+		E4262D342456992800B8C8CC /* SomeImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4262D332456992800B8C8CC /* SomeImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		E4262D2D245617ED00B8C8CC /* Animal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animal.swift; sourceTree = "<group>"; };
 		E4262D2F2456193E00B8C8CC /* Animals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animals.swift; sourceTree = "<group>"; };
 		E4262D312456628A00B8C8CC /* AnimalDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalDetailTableViewController.swift; sourceTree = "<group>"; };
+		E4262D332456992800B8C8CC /* SomeImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomeImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 			children = (
 				E4262D17245613B400B8C8CC /* AppDelegate.swift */,
 				E4262D19245613B400B8C8CC /* SceneDelegate.swift */,
+				E4262D332456992800B8C8CC /* SomeImage.swift */,
 				E4262D2F2456193E00B8C8CC /* Animals.swift */,
 				E4262D2D245617ED00B8C8CC /* Animal.swift */,
 				E4262D2B2456168000B8C8CC /* AnimalTableViewCell.swift */,
@@ -151,6 +154,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4262D322456628A00B8C8CC /* AnimalDetailTableViewController.swift in Sources */,
+				E4262D342456992800B8C8CC /* SomeImage.swift in Sources */,
 				E4262D1C245613B400B8C8CC /* AnimalListViewController.swift in Sources */,
 				E4262D302456193E00B8C8CC /* Animals.swift in Sources */,
 				E4262D2C2456168000B8C8CC /* AnimalTableViewCell.swift in Sources */,

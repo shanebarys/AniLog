@@ -9,15 +9,15 @@
 import Foundation
 import UIKit
 
-class Animal {
+class Animal: Codable {
     var type: String
     var name: String
     var description: String
     var rating: String
-    var picture: UIImage
+    var picture: SomeImage
     var dateMet: String
     
-    init(type: String, name: String, description: String, rating: String, picture: UIImage, dateMet: String) {
+    init(type: String, name: String, description: String, rating: String, picture: SomeImage, dateMet: String) {
         self.name = name
         self.description = description
         self.type = type
